@@ -11,7 +11,7 @@ func Sum(numbers []int) int {
 
 // [[1 2] [0 9]] => slice of slices of integers: [][]int
 
-func SumAll(numbersToSum ...[]int) []int {
+func SumAllOld(numbersToSum ...[]int) []int {
 	lengthOfNumbers := len(numbersToSum)
 	sums := make([]int, lengthOfNumbers)
 
@@ -19,5 +19,23 @@ func SumAll(numbersToSum ...[]int) []int {
 		sums[i] = Sum(numbers)
 	}
 
+	return sums
+}
+
+// refactored SumAll to use append:
+func SumAll(numbersToSum ...[]int) []int {
+	var sums []int
+	for _, numbers := range numbersToSum {
+		sums = append(sums, Sum(numbers))
+	}
+	return sums
+}
+
+func SumAllTails(numbersToSum ...[]int) []int {
+	var sums []int
+	for _, numbers := range numbersToSum {
+		tail := numbers[1:]
+		sums = append(sums, Sum(tail))
+	}
 	return sums
 }
