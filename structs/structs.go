@@ -1,7 +1,11 @@
 package structs
 
-import "math"
+import (
+	"math"
+)
 
+// Declaring interfaces so you can define functions that can be used by different types (parametric polymorphism)
+// see: https://en.wikipedia.org/wiki/Parametric_polymorphism
 type Shape interface {
 	Area() float64
 }
@@ -30,4 +34,13 @@ type Circle struct {
 
 func (c Circle) Area() float64 {
 	return math.Pi * c.Radius * c.Radius
+}
+
+type Triangle struct {
+	Base   float64
+	Height float64
+}
+
+func (t Triangle) Area() float64 {
+	return (t.Height * t.Base) / 2
 }
