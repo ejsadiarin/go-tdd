@@ -22,7 +22,7 @@ func SumAllOld(numbersToSum ...[]int) []int {
 	return sums
 }
 
-// refactored SumAll to use append:
+// refactored SumAll to use append
 func SumAll(numbersToSum ...[]int) []int {
 	var sums []int
 	for _, numbers := range numbersToSum {
