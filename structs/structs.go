@@ -25,6 +25,7 @@ func (r Rectangle) Area() float64 {
 
 type Circle struct {
 	Radius float64
+	Work   string
 }
 
 // instead of:
